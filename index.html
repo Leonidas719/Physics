@@ -1,0 +1,3873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EXAMFORMULA Physics</title>
+
+<meta name="description"
+content="Detailed Leaving Certificate Physics study book with explanations, laws, formulas, worked examples and practical guidance.">
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#050505">
+
+<style>
+:root{
+    --bg:#050505;
+    --panel:#0d0d0f;
+    --panel2:#121216;
+    --border:#25252c;
+    --text:#f4f4f6;
+    --muted:#a4a4ad;
+    --accent:#55d6ff;
+    --accent2:#8c6cff;
+    --good:#6ee7a0;
+    --warning:#ffd166;
+    --danger:#ff7070;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    background:
+        radial-gradient(circle at top right, rgba(85,214,255,.08), transparent 30%),
+        radial-gradient(circle at top left, rgba(140,108,255,.07), transparent 25%),
+        var(--bg);
+    color:var(--text);
+    font-family:Arial, Helvetica, sans-serif;
+    line-height:1.65;
+}
+
+button,
+input{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    backdrop-filter:blur(16px);
+    background:rgba(5,5,5,.88);
+    border-bottom:1px solid var(--border);
+}
+
+.header-inner{
+    max-width:1400px;
+    margin:auto;
+    padding:16px 22px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:900;
+    letter-spacing:1px;
+    white-space:nowrap;
+}
+
+.logo span{
+    color:var(--accent);
+}
+
+.search-wrap{
+    flex:1;
+    position:relative;
+}
+
+.search{
+    width:100%;
+    background:#101014;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:12px 15px;
+    color:white;
+    outline:none;
+}
+
+.search:focus{
+    border-color:var(--accent);
+    box-shadow:0 0 0 3px rgba(85,214,255,.1);
+}
+
+.menu-button{
+    width:45px;
+    height:45px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:#101014;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+}
+
+.layout{
+    max-width:1400px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:260px minmax(0,1fr);
+    gap:28px;
+    padding:30px 22px 70px;
+}
+
+.sidebar{
+    position:sticky;
+    top:90px;
+    align-self:start;
+    max-height:calc(100vh - 115px);
+    overflow:auto;
+}
+
+.sidebar-title{
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    font-size:11px;
+    margin-bottom:10px;
+}
+
+.nav{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+
+.nav button{
+    text-align:left;
+    border:1px solid transparent;
+    background:transparent;
+    color:#bbb;
+    padding:10px 12px;
+    border-radius:8px;
+}
+
+.nav button:hover,
+.nav button.active{
+    color:white;
+    background:#111116;
+    border-color:var(--border);
+}
+
+main{
+    min-width:0;
+}
+
+.hero{
+    padding:25px 0 35px;
+}
+
+.hero-label{
+    color:var(--accent);
+    text-transform:uppercase;
+    font-weight:bold;
+    letter-spacing:2px;
+    font-size:12px;
+}
+
+.hero h1{
+    margin:8px 0;
+    font-size:clamp(34px,5vw,64px);
+    line-height:1.05;
+}
+
+.hero p{
+    max-width:800px;
+    color:var(--muted);
+    font-size:17px;
+}
+
+.progress-box{
+    margin-top:25px;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:18px;
+}
+
+.progress-track{
+    height:7px;
+    background:#202027;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    transition:.3s;
+}
+
+.chapter{
+    margin-bottom:55px;
+    scroll-margin-top:100px;
+}
+
+.chapter-header{
+    border-bottom:1px solid var(--border);
+    padding-bottom:15px;
+    margin-bottom:25px;
+}
+
+.chapter-number{
+    color:var(--accent);
+    font-size:12px;
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+}
+
+.chapter h2{
+    margin:5px 0;
+    font-size:32px;
+}
+
+.topic{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:15px;
+    margin:14px 0;
+    overflow:hidden;
+}
+
+.topic-header{
+    padding:18px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    cursor:pointer;
+}
+
+.topic-header h3{
+    margin:0;
+    font-size:20px;
+}
+
+.topic-header span{
+    color:var(--muted);
+    font-size:20px;
+}
+
+.topic-content{
+    display:none;
+    padding:0 20px 25px;
+    border-top:1px solid var(--border);
+}
+
+.topic.open .topic-content{
+    display:block;
+}
+
+.topic-content h4{
+    margin-top:25px;
+    color:var(--accent);
+    font-size:16px;
+}
+
+.topic-content p{
+    color:#d4d4da;
+}
+
+.topic-content ul{
+    color:#d4d4da;
+}
+
+.definition{
+    border-left:3px solid var(--accent);
+    background:#111820;
+    padding:14px 17px;
+    margin:15px 0;
+    border-radius:0 8px 8px 0;
+}
+
+.law{
+    border-left:3px solid var(--accent2);
+    background:#15121e;
+    padding:15px 17px;
+    margin:15px 0;
+    border-radius:0 8px 8px 0;
+}
+
+.formula{
+    background:#09090c;
+    border:1px solid #30303a;
+    border-radius:10px;
+    padding:17px;
+    margin:15px 0;
+    font-family:"Courier New",monospace;
+    font-size:17px;
+    overflow:auto;
+}
+
+.formula strong{
+    color:var(--accent);
+}
+
+.example{
+    background:#101614;
+    border:1px solid #26382f;
+    border-radius:10px;
+    padding:18px;
+    margin:18px 0;
+}
+
+.example-title{
+    color:var(--good);
+    font-weight:bold;
+    margin-bottom:7px;
+}
+
+.warning{
+    background:#19160d;
+    border:1px solid #493d1d;
+    border-radius:10px;
+    padding:15px;
+    margin:15px 0;
+}
+
+.warning strong{
+    color:var(--warning);
+}
+
+.memory{
+    background:#15121e;
+    border:1px solid #332c4d;
+    border-radius:10px;
+    padding:15px;
+    margin:15px 0;
+}
+
+.memory strong{
+    color:#bbaaff;
+}
+
+.steps{
+    counter-reset:steps;
+    padding-left:0;
+    list-style:none;
+}
+
+.steps li{
+    counter-increment:steps;
+    margin:12px 0;
+    padding-left:38px;
+    position:relative;
+}
+
+.steps li::before{
+    content:counter(steps);
+    position:absolute;
+    left:0;
+    top:0;
+    width:26px;
+    height:26px;
+    border-radius:50%;
+    background:#1b2730;
+    color:var(--accent);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.two-col{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:15px;
+}
+
+.card{
+    background:var(--panel2);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:16px;
+}
+
+.card h5{
+    margin:0 0 8px;
+    color:var(--accent);
+    font-size:15px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin:15px 0;
+}
+
+th,
+td{
+    padding:11px;
+    border:1px solid var(--border);
+    text-align:left;
+}
+
+th{
+    background:#16161b;
+    color:var(--accent);
+}
+
+td{
+    color:#d0d0d6;
+}
+
+footer{
+    text-align:center;
+    color:#777;
+    padding:40px 20px;
+    border-top:1px solid var(--border);
+}
+
+.no-results{
+    display:none;
+    padding:30px;
+    text-align:center;
+    color:var(--muted);
+    border:1px solid var(--border);
+    border-radius:12px;
+}
+
+@media(max-width:900px){
+    .layout{
+        grid-template-columns:1fr;
+    }
+
+    .sidebar{
+        position:static;
+        max-height:none;
+    }
+
+    .nav{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .two-col{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:600px){
+    .header-inner{
+        flex-wrap:wrap;
+    }
+
+    .logo{
+        width:100%;
+    }
+
+    .layout{
+        padding:20px 14px 50px;
+    }
+
+    .chapter h2{
+        font-size:27px;
+    }
+
+    .topic-header h3{
+        font-size:17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+        <div class="logo">EXAM<span>FORMULA</span> Physics</div>
+
+        <div class="search-wrap">
+            <input
+                id="search"
+                class="search"
+                type="search"
+                placeholder="Search Physics topics, laws, formulas..."
+                aria-label="Search Physics"
+            >
+        </div>
+
+        <button class="menu-button" id="expandAll" type="button">
+            +
+        </button>
+    </div>
+</header>
+
+<div class="layout">
+
+<aside class="sidebar">
+
+    <div class="sidebar-title">Chapters</div>
+
+    <nav class="nav" id="nav">
+
+        <button data-target="mechanics">01 Mechanics</button>
+        <button data-target="thermal">02 Thermal Physics</button>
+        <button data-target="waves">03 Waves</button>
+        <button data-target="sound">04 Sound</button>
+        <button data-target="light">05 Light & Optics</button>
+        <button data-target="electricity">06 Electricity</button>
+        <button data-target="magnetism">07 Magnetism</button>
+        <button data-target="induction">08 Electromagnetic Induction</button>
+        <button data-target="modern">09 Modern Physics</button>
+        <button data-target="particles">10 Particle Physics</button>
+        <button data-target="astrophysics">11 Astrophysics</button>
+        <button data-target="experiments">12 Experimental Physics</button>
+        <button data-target="exam">13 Exam Skills</button>
+
+    </nav>
+
+</aside>
+
+<main>
+
+<section class="hero">
+
+    <div class="hero-label">Leaving Certificate Physics</div>
+
+    <h1>The Physics Study Book</h1>
+
+    <p>
+        A detailed reference designed to explain Physics rather than simply
+        list formulas. Learn what each idea means, why equations work,
+        when to use them, and how to approach exam questions.
+    </p>
+
+    <div class="progress-box">
+
+        <strong id="progressText">0% of chapters viewed</strong>
+
+        <div class="progress-track">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+    </div>
+
+</section>
+
+<div id="noResults" class="no-results">
+    No matching topics found.
+</div>
+
+
+<!-- ========================================================= -->
+<!-- MECHANICS -->
+<!-- ========================================================= -->
+
+<section class="chapter" id="mechanics">
+
+<div class="chapter-header">
+<div class="chapter-number">Chapter 01</div>
+<h2>Mechanics</h2>
+<p>Motion, forces, momentum, energy, power, moments, circular motion and gravity.</p>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>1.1 Scalars and Vectors</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="definition">
+<strong>Scalar:</strong> a physical quantity that has magnitude only.
+</div>
+
+<div class="definition">
+<strong>Vector:</strong> a physical quantity that has both magnitude and direction.
+</div>
+
+<table>
+<tr>
+<th>Scalar</th>
+<th>Vector</th>
+</tr>
+<tr>
+<td>Distance</td>
+<td>Displacement</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td>Velocity</td>
+</tr>
+<tr>
+<td>Mass</td>
+<td>Force</td>
+</tr>
+<tr>
+<td>Energy</td>
+<td>Acceleration</td>
+</tr>
+<tr>
+<td>Time</td>
+<td>Momentum</td>
+</tr>
+</table>
+
+<div class="warning">
+<strong>Common mistake:</strong>
+Do not automatically assume speed and velocity mean the same thing.
+Speed has no direction; velocity does.
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>1.2 Distance and Displacement</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="definition">
+<strong>Distance</strong> is the total length of the path travelled.
+</div>
+
+<div class="definition">
+<strong>Displacement</strong> is the straight-line change in position from the starting point to the finishing point, including direction.
+</div>
+
+<p>
+Imagine walking 5 m east and then 5 m west.
+Your distance travelled is 10 m, but your displacement is 0 m because
+you finished where you started.
+</p>
+
+<div class="memory">
+<strong>Memory:</strong> Distance asks "how far did you travel?"
+Displacement asks "where did you finish compared with where you started?"
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>1.3 Speed, Velocity and Acceleration</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<h4>Speed</h4>
+
+<div class="formula">
+<strong>speed = distance ÷ time</strong><br><br>
+v = d / t
+</div>
+
+<ul>
+<li>v = speed in m/s</li>
+<li>d = distance in m</li>
+<li>t = time in s</li>
+</ul>
+
+<div class="definition">
+Average speed is calculated using total distance divided by total time.
+</div>
+
+<h4>Velocity</h4>
+
+<div class="formula">
+<strong>velocity = displacement ÷ time</strong><br><br>
+v = s / t
+</div>
+
+<p>
+Velocity is speed in a specified direction.
+</p>
+
+<h4>Acceleration</h4>
+
+<div class="formula">
+<strong>a = (v - u) / t</strong>
+</div>
+
+<ul>
+<li>a = acceleration in m/s²</li>
+<li>v = final velocity in m/s</li>
+<li>u = initial velocity in m/s</li>
+<li>t = time in seconds</li>
+</ul>
+
+<div class="example">
+<div class="example-title">Worked Example</div>
+
+A car increases its velocity from 10 m/s to 30 m/s in 5 seconds.
+
+<br><br>
+
+a = (v - u) / t
+
+<br><br>
+
+a = (30 - 10) / 5
+
+<br><br>
+
+<strong>a = 4 m/s²</strong>
+
+<p>
+This means the velocity increases by 4 m/s every second.
+</p>
+</div>
+
+<div class="warning">
+<strong>Common mistake:</strong>
+Always convert units before substituting. For example,
+72 km/h is not 72 m/s.
+</div>
+
+<div class="memory">
+<strong>Memory:</strong>
+Acceleration tells you how quickly velocity changes.
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>1.4 Equations of Motion</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<p>
+For constant acceleration, the standard equations of motion are extremely
+important.
+</p>
+
+<div class="formula">
+v = u + at
+</div>
+
+<div class="formula">
+s = ut + ½at²
+</div>
+
+<div class="formula">
+v² = u² + 2as
+</div>
+
+<div class="formula">
+s = ½(u + v)t
+</div>
+
+<table>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Unit</th>
+</tr>
+<tr><td>u</td><td>Initial velocity</td><td>m/s</td></tr>
+<tr><td>v</td><td>Final velocity</td><td>m/s</td></tr>
+<tr><td>a</td><td>Acceleration</td><td>m/s²</td></tr>
+<tr><td>s</td><td>Displacement</td><td>m</td></tr>
+<tr><td>t</td><td>Time</td><td>s</td></tr>
+</table>
+
+<h4>How to choose the equation</h4>
+
+<p>
+Look at which quantities you have and which quantity you need.
+Choose an equation that contains those quantities and does not introduce
+an unnecessary unknown.
+</p>
+
+<div class="example">
+<div class="example-title">Example</div>
+
+An object starts from rest and accelerates at 3 m/s² for 4 seconds.
+
+Given:
+
+<br>
+u = 0 m/s<br>
+a = 3 m/s²<br>
+t = 4 s
+
+<br><br>
+
+We want v, so use:
+
+<br><br>
+
+v = u + at
+
+<br><br>
+
+v = 0 + (3)(4)
+
+<br><br>
+
+<strong>v = 12 m/s</strong>
+</div>
+
+<div class="warning">
+<strong>Important:</strong>
+These equations assume constant acceleration.
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>1.5 Motion Graphs</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<h4>Distance-Time Graph</h4>
+
+<ul>
+<li>Gradient represents speed.</li>
+<li>A horizontal line means the object is stationary.</li>
+<li>A steeper line means greater speed.</li>
+</ul>
+
+<h4>Velocity-Time Graph</h4>
+
+<ul>
+<li>Gradient represents acceleration.</li>
+<li>Horizontal line means constant velocity.</li>
+<li>Area under the graph represents displacement.</li>
+</ul>
+
+<h4>Acceleration-Time Graph</h4>
+
+<ul>
+<li>The vertical value represents acceleration.</li>
+<li>Area under the graph represents change in velocity.</li>
+</ul>
+
+<div class="memory">
+<strong>Graph memory:</strong><br>
+Distance-time → gradient = speed<br>
+Velocity-time → gradient = acceleration<br>
+Velocity-time → area = displacement
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>1.6 Newton's Laws of Motion</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<h4>Newton's First Law</h4>
+
+<div class="law">
+An object remains at rest or continues moving with constant velocity
+unless acted upon by a resultant external force.
+</div>
+
+<p>
+This is the principle of inertia. An object does not need a force to
+continue moving at constant velocity. A resultant force is required
+to change its motion.
+</p>
+
+<h4>Newton's Second Law</h4>
+
+<div class="law">
+The resultant force on an object is proportional to its acceleration,
+with the relationship depending on the object's mass.
+</div>
+
+<div class="formula">
+<strong>F = ma</strong>
+</div>
+
+<ul>
+<li>F = resultant force in newtons (N)</li>
+<li>m = mass in kilograms (kg)</li>
+<li>a = acceleration in m/s²</li>
+</ul>
+
+<h4>Newton's Third Law</h4>
+
+<div class="law">
+When object A exerts a force on object B, object B exerts an equal
+and opposite force on object A.
+</div>
+
+<div class="warning">
+<strong>Important:</strong>
+The two forces act on different objects. Therefore they do not simply
+cancel each other.
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>1.7 Weight, Mass and Gravity</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="definition">
+<strong>Mass</strong> is the amount of matter in an object and is measured in kilograms.
+</div>
+
+<div class="definition">
+<strong>Weight</strong> is the gravitational force acting on an object.
+</div>
+
+<div class="formula">
+<strong>W = mg</strong>
+</div>
+
+<ul>
+<li>W = weight in N</li>
+<li>m = mass in kg</li>
+<li>g = gravitational acceleration in m/s²</li>
+</ul>
+
+<p>
+Near Earth's surface, g is approximately 9.8 m/s².
+</p>
+
+<div class="example">
+<div class="example-title">Worked Example</div>
+
+A 60 kg person stands on Earth.
+
+<br><br>
+
+W = mg
+
+<br><br>
+
+W = 60 × 9.8
+
+<br><br>
+
+<strong>W = 588 N</strong>
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>1.8 Momentum and Impulse</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="definition">
+Momentum is the product of an object's mass and velocity.
+</div>
+
+<div class="formula">
+<strong>p = mv</strong>
+</div>
+
+<p>
+Momentum is measured in kg m/s.
+</p>
+
+<h4>Conservation of Momentum</h4>
+
+<div class="law">
+In an isolated system, total momentum before an interaction equals
+total momentum after the interaction.
+</div>
+
+<div class="formula">
+total momentum before = total momentum after
+</div>
+
+<h4>Impulse</h4>
+
+<div class="formula">
+<strong>Impulse = Ft = change in momentum</strong>
+</div>
+
+<div class="formula">
+FΔt = Δp
+</div>
+
+<p>
+Increasing the time over which an object is brought to rest reduces
+the average force for the same change in momentum.
+</p>
+
+<div class="example">
+<div class="example-title">Real-world application</div>
+
+Car airbags increase the time over which the passenger's momentum changes.
+Because the change in momentum is the same, increasing the stopping time
+reduces the average force.
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>1.9 Work, Energy and Power</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<h4>Work</h4>
+
+<div class="definition">
+Work is done when a force causes displacement in the direction of the force.
+</div>
+
+<div class="formula">
+<strong>W = Fs</strong>
+</div>
+
+<p>
+W is measured in joules.
+</p>
+
+<h4>Kinetic Energy</h4>
+
+<div class="formula">
+<strong>Ek = ½mv²</strong>
+</div>
+
+<h4>Gravitational Potential Energy</h4>
+
+<div class="formula">
+<strong>Ep = mgh</strong>
+</div>
+
+<h4>Power</h4>
+
+<div class="definition">
+Power is the rate at which work is done or energy is transferred.
+</div>
+
+<div class="formula">
+<strong>P = W/t</strong>
+</div>
+
+<div class="formula">
+<strong>P = E/t</strong>
+</div>
+
+<p>
+Power is measured in watts.
+1 watt = 1 joule per second.
+</p>
+
+<h4>Efficiency</h4>
+
+<div class="formula">
+<strong>Efficiency = useful output energy / total input energy × 100%</strong>
+</div>
+
+<div class="warning">
+<strong>Common mistake:</strong>
+Energy is measured in joules. Power is measured in watts.
+They are not the same quantity.
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>1.10 Moments and Equilibrium</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="definition">
+The moment of a force about a point is the turning effect of the force
+about that point.
+</div>
+
+<div class="formula">
+<strong>Moment = force × perpendicular distance from pivot</strong>
+</div>
+
+<div class="formula">
+M = Fd
+</div>
+
+<h4>Principle of Moments</h4>
+
+<div class="law">
+For an object in rotational equilibrium, the sum of clockwise moments
+about a point equals the sum of anticlockwise moments about that point.
+</div>
+
+<div class="formula">
+clockwise moments = anticlockwise moments
+</div>
+
+<h4>Conditions for Equilibrium</h4>
+
+<p>
+For an object to be completely in equilibrium:
+</p>
+
+<ul>
+<li>The resultant force must be zero.</li>
+<li>The resultant moment must be zero.</li>
+</ul>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>1.11 Circular Motion</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<p>
+An object moving in a circle is continually changing direction, so its
+velocity is changing even if its speed remains constant.
+</p>
+
+<div class="definition">
+Centripetal force is the resultant force directed towards the centre
+of a circular path.
+</div>
+
+<div class="formula">
+<strong>Fc = mv²/r</strong>
+</div>
+
+<p>
+The corresponding centripetal acceleration is:
+</p>
+
+<div class="formula">
+<strong>ac = v²/r</strong>
+</div>
+
+<div class="warning">
+<strong>Important:</strong>
+Centripetal force is not necessarily a new type of force.
+It is the name given to the resultant inward force.
+It may be provided by tension, gravity, friction or another force.
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>1.12 Universal Gravitation</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="law">
+Every mass attracts every other mass with a force that is proportional
+to the product of their masses and inversely proportional to the square
+of the distance between their centres.
+</div>
+
+<div class="formula">
+<strong>F = Gm₁m₂/r²</strong>
+</div>
+
+<ul>
+<li>F = gravitational force</li>
+<li>G = universal gravitational constant</li>
+<li>m₁ and m₂ = masses</li>
+<li>r = distance between their centres</li>
+</ul>
+
+<div class="memory">
+<strong>Inverse-square idea:</strong>
+If distance doubles, gravitational force becomes one quarter as large.
+</div>
+
+</div>
+</div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- THERMAL -->
+<!-- ========================================================= -->
+
+<section class="chapter" id="thermal">
+
+<div class="chapter-header">
+<div class="chapter-number">Chapter 02</div>
+<h2>Thermal Physics</h2>
+<p>Temperature, heat, energy transfer, changes of state and gases.</p>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>2.1 Temperature and Heat</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="definition">
+<strong>Temperature</strong> is a measure related to the average kinetic energy
+of the particles in a substance.
+</div>
+
+<div class="definition">
+<strong>Heat</strong> is energy transferred from a hotter object to a colder object
+because of a temperature difference.
+</div>
+
+<p>
+Heat is energy in transfer. It is not simply something that an object
+"contains" in the same way that it contains mass.
+</p>
+
+<h4>Temperature Scales</h4>
+
+<p>
+Temperature in thermodynamic calculations is often measured in kelvin.
+</p>
+
+<div class="formula">
+<strong>T(K) = T(°C) + 273.15</strong>
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>2.2 Specific Heat Capacity</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="definition">
+Specific heat capacity is the amount of energy required to raise the
+temperature of 1 kg of a substance by 1 K.
+</div>
+
+<div class="formula">
+<strong>Q = mcΔT</strong>
+</div>
+
+<ul>
+<li>Q = heat energy in J</li>
+<li>m = mass in kg</li>
+<li>c = specific heat capacity in J kg⁻¹ K⁻¹</li>
+<li>ΔT = temperature change in K or °C</li>
+</ul>
+
+<div class="example">
+<div class="example-title">Worked Example</div>
+
+2 kg of a material has a specific heat capacity of 500 J kg⁻¹ K⁻¹.
+Its temperature increases by 10 K.
+
+<br><br>
+
+Q = mcΔT
+
+<br><br>
+
+Q = 2 × 500 × 10
+
+<br><br>
+
+<strong>Q = 10,000 J</strong>
+</div>
+
+<div class="warning">
+<strong>Common mistake:</strong>
+Mass must be in kilograms, not grams.
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>2.3 Specific Latent Heat</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="definition">
+Specific latent heat is the energy required to change the state of 1 kg
+of a substance without changing its temperature.
+</div>
+
+<div class="formula">
+<strong>Q = ml</strong>
+</div>
+
+<p>
+There are two major types:
+</p>
+
+<ul>
+<li>Specific latent heat of fusion — solid ↔ liquid.</li>
+<li>Specific latent heat of vaporisation — liquid ↔ gas.</li>
+</ul>
+
+<p>
+During a change of state, the supplied energy is used to change the
+arrangement/bonding of particles rather than increasing their temperature.
+</p>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>2.4 Heat Transfer</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<h4>Conduction</h4>
+
+<p>
+Energy is transferred through a material by interactions between particles.
+In metals, free electrons are especially important in thermal conduction.
+</p>
+
+<h4>Convection</h4>
+
+<p>
+Convection occurs in fluids. Warmer fluid becomes less dense and rises,
+while cooler, denser fluid falls, producing a convection current.
+</p>
+
+<h4>Radiation</h4>
+
+<p>
+Thermal radiation is electromagnetic radiation. It does not require a
+medium and can travel through a vacuum.
+</p>
+
+<div class="memory">
+<strong>Memory:</strong><br>
+Conduction → contact<br>
+Convection → moving fluid<br>
+Radiation → electromagnetic waves
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>2.5 Gas Laws</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<h4>Boyle's Law</h4>
+
+<div class="law">
+For a fixed mass of gas at constant temperature, pressure is inversely
+proportional to volume.
+</div>
+
+<div class="formula">
+<strong>PV = constant</strong>
+</div>
+
+<div class="formula">
+P₁V₁ = P₂V₂
+</div>
+
+<h4>Charles' Law</h4>
+
+<div class="law">
+For a fixed mass of gas at constant pressure, volume is directly
+proportional to absolute temperature.
+</div>
+
+<div class="formula">
+<strong>V/T = constant</strong>
+</div>
+
+<h4>Pressure Law</h4>
+
+<div class="law">
+For a fixed mass of gas at constant volume, pressure is directly
+proportional to absolute temperature.
+</div>
+
+<div class="formula">
+<strong>P/T = constant</strong>
+</div>
+
+<div class="warning">
+<strong>Important:</strong>
+Gas-law temperatures must normally be in kelvin.
+</div>
+
+</div>
+</div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- WAVES -->
+<!-- ========================================================= -->
+
+<section class="chapter" id="waves">
+
+<div class="chapter-header">
+<div class="chapter-number">Chapter 03</div>
+<h2>Waves</h2>
+<p>Wave properties, reflection, refraction, diffraction and interference.</p>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>3.1 What is a Wave?</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="definition">
+A wave is a disturbance that transfers energy from one location to another
+without there being a net transfer of matter from one location to another.
+</div>
+
+<h4>Transverse Waves</h4>
+
+<p>
+The particles vibrate perpendicular to the direction in which the wave travels.
+</p>
+
+<p>
+Examples include electromagnetic waves.
+</p>
+
+<h4>Longitudinal Waves</h4>
+
+<p>
+The particles vibrate parallel to the direction in which the wave travels.
+</p>
+
+<p>
+Sound is a longitudinal wave in air.
+</p>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>3.2 Frequency, Period and Wavelength</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="definition">
+<strong>Frequency</strong> is the number of complete waves passing a point per second.
+</div>
+
+<div class="formula">
+<strong>f = 1/T</strong>
+</div>
+
+<p>
+Frequency is measured in hertz (Hz).
+</p>
+
+<div class="definition">
+<strong>Wavelength</strong> is the distance between corresponding points on successive waves,
+such as crest-to-crest.
+</div>
+
+<div class="formula">
+<strong>v = fλ</strong>
+</div>
+
+<ul>
+<li>v = wave speed</li>
+<li>f = frequency</li>
+<li>λ = wavelength</li>
+</ul>
+
+<div class="example">
+<div class="example-title">Worked Example</div>
+
+A wave has frequency 50 Hz and wavelength 2 m.
+
+<br><br>
+
+v = fλ
+
+<br><br>
+
+v = 50 × 2
+
+<br><br>
+
+<strong>v = 100 m/s</strong>
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>3.3 Reflection — Both Laws</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<p>
+Reflection occurs when a wave reaches a boundary and is returned into
+the original medium.
+</p>
+
+<div class="law">
+<strong>Law 1 of Reflection:</strong>
+The angle of incidence equals the angle of reflection.
+</div>
+
+<div class="formula">
+<strong>i = r</strong>
+</div>
+
+<div class="law">
+<strong>Law 2 of Reflection:</strong>
+The incident ray, reflected ray and the normal all lie in the same plane.
+</div>
+
+<h4>Important terminology</h4>
+
+<ul>
+<li><strong>Incident ray:</strong> the ray travelling towards the boundary.</li>
+<li><strong>Reflected ray:</strong> the ray travelling away after reflection.</li>
+<li><strong>Normal:</strong> a line perpendicular to the boundary.</li>
+<li><strong>Angle of incidence:</strong> angle between incident ray and normal.</li>
+<li><strong>Angle of reflection:</strong> angle between reflected ray and normal.</li>
+</ul>
+
+<div class="warning">
+<strong>Major exam mistake:</strong>
+Angles of incidence and reflection are measured from the normal,
+not from the surface.
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>3.4 Refraction — Both Laws</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<p>
+Refraction is the change in direction of a wave when it passes from one
+medium into another because its speed changes.
+</p>
+
+<div class="law">
+<strong>Law 1 of Refraction:</strong>
+The incident ray, refracted ray and the normal at the point of incidence
+all lie in the same plane.
+</div>
+
+<div class="law">
+<strong>Law 2 of Refraction — Snell's Law:</strong>
+For two particular media, the ratio of the sine of the angle of incidence
+to the sine of the angle of refraction is constant.
+</div>
+
+<div class="formula">
+<strong>n₁ sin i = n₂ sin r</strong>
+</div>
+
+<p>
+For light travelling from air into a material, this is commonly simplified
+using the refractive index of the material.
+</p>
+
+<div class="formula">
+<strong>n = sin i / sin r</strong>
+</div>
+
+<h4>Refractive Index and Speed</h4>
+
+<div class="formula">
+<strong>n = c/v</strong>
+</div>
+
+<ul>
+<li>n = refractive index</li>
+<li>c = speed of light in vacuum</li>
+<li>v = speed of light in the material</li>
+</ul>
+
+<h4>Which way does the ray bend?</h4>
+
+<p>
+When light enters a medium in which it travels more slowly, it bends
+towards the normal.
+</p>
+
+<p>
+When it enters a medium in which it travels faster, it bends away
+from the normal.
+</p>
+
+<div class="warning">
+<strong>Important:</strong>
+The frequency of the light does not change when it crosses the boundary.
+Its speed and wavelength change.
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>3.5 Diffraction</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="definition">
+Diffraction is the spreading or bending of waves when they pass through
+a gap or around an obstacle.
+</div>
+
+<p>
+Diffraction is most noticeable when the size of the gap or obstacle is
+similar to the wavelength.
+</p>
+
+<div class="memory">
+<strong>Key idea:</strong>
+Gap size ≈ wavelength → strong diffraction.
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>3.6 Interference and Superposition</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="law">
+<strong>Principle of Superposition:</strong>
+When two or more waves overlap, the resultant displacement is the
+algebraic sum of the individual displacements.
+</div>
+
+<h4>Constructive Interference</h4>
+
+<p>
+Waves arrive in phase and reinforce each other.
+</p>
+
+<h4>Destructive Interference</h4>
+
+<p>
+Waves arrive out of phase and partially or completely cancel.
+</p>
+
+</div>
+</div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- SOUND -->
+<!-- ========================================================= -->
+
+<section class="chapter" id="sound">
+
+<div class="chapter-header">
+<div class="chapter-number">Chapter 04</div>
+<h2>Sound</h2>
+<p>Sound waves, resonance, standing waves, pitch, loudness and Doppler effect.</p>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>4.1 Properties of Sound</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<p>
+Sound is a mechanical wave, meaning it requires a medium through which
+to travel.
+</p>
+
+<p>
+In air, sound travels as a longitudinal wave consisting of compressions
+and rarefactions.
+</p>
+
+<ul>
+<li>Frequency determines pitch.</li>
+<li>Amplitude is related to loudness.</li>
+<li>Wave speed depends on the medium.</li>
+</ul>
+
+<div class="warning">
+<strong>Remember:</strong>
+Sound cannot travel through a vacuum because there are no particles
+available to transmit the mechanical disturbance.
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>4.2 Resonance</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="definition">
+Resonance occurs when an object is forced to vibrate at or near its
+natural frequency, producing a large amplitude of vibration.
+</div>
+
+<p>
+Every vibrating system has one or more natural frequencies.
+When the driving frequency matches a natural frequency, energy transfer
+can become particularly effective.
+</p>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>4.3 Standing Waves</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="definition">
+A standing wave is formed when two waves of the same frequency,
+amplitude and speed travel in opposite directions and interfere.
+</div>
+
+<ul>
+<li><strong>Nodes:</strong> points of minimum displacement.</li>
+<li><strong>Antinodes:</strong> points of maximum displacement.</li>
+</ul>
+
+<p>
+Standing waves are important in musical instruments and resonance experiments.
+</p>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>4.4 Doppler Effect</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="definition">
+The Doppler effect is the apparent change in frequency of a wave caused
+by relative motion between the source and observer.
+</div>
+
+<p>
+If the source approaches the observer, the observed frequency increases.
+</p>
+
+<p>
+If the source moves away, the observed frequency decreases.
+</p>
+
+<p>
+The same principle applies to sound and electromagnetic radiation.
+</p>
+
+</div>
+</div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- LIGHT -->
+<!-- ========================================================= -->
+
+<section class="chapter" id="light">
+
+<div class="chapter-header">
+<div class="chapter-number">Chapter 05</div>
+<h2>Light & Optics</h2>
+<p>Reflection, refraction, lenses, refractive index and total internal reflection.</p>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>5.1 Electromagnetic Spectrum</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<p>
+Electromagnetic waves are transverse waves consisting of oscillating
+electric and magnetic fields.
+</p>
+
+<p>
+They can travel through a vacuum.
+</p>
+
+<table>
+<tr>
+<th>Region</th>
+<th>Typical idea</th>
+</tr>
+<tr><td>Radio</td><td>Longest wavelengths</td></tr>
+<tr><td>Microwave</td><td>Communications and heating</td></tr>
+<tr><td>Infrared</td><td>Thermal radiation</td></tr>
+<tr><td>Visible</td><td>Detected by human eyes</td></tr>
+<tr><td>Ultraviolet</td><td>Higher frequency than visible light</td></tr>
+<tr><td>X-rays</td><td>High-energy electromagnetic radiation</td></tr>
+<tr><td>Gamma</td><td>Highest-frequency region of the list</td></tr>
+</table>
+
+<div class="formula">
+<strong>c = fλ</strong>
+</div>
+
+<p>
+All electromagnetic waves travel at the same speed in vacuum:
+approximately 3.00 × 10⁸ m/s.
+</p>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>5.2 Critical Angle</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="definition">
+The critical angle is the angle of incidence in the optically denser
+medium for which the angle of refraction in the less dense medium is 90°.
+</div>
+
+<div class="formula">
+<strong>sin C = 1/n</strong>
+</div>
+
+<p>
+This form applies when light travels from the material into air
+or approximately from the denser material into vacuum.
+</p>
+
+<h4>Total Internal Reflection</h4>
+
+<p>
+Two conditions must be satisfied:
+</p>
+
+<ol>
+<li>Light must travel from an optically denser medium to an optically less dense medium.</li>
+<li>The angle of incidence must be greater than the critical angle.</li>
+</ol>
+
+<div class="memory">
+<strong>Remember TIR:</strong>
+Denser → less dense + i &gt; C
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>5.3 Lenses</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<h4>Convex Lens</h4>
+
+<p>
+A convex lens is thicker in the middle and causes parallel rays to
+converge towards a focal point.
+</p>
+
+<h4>Concave Lens</h4>
+
+<p>
+A concave lens is thinner in the middle and causes parallel rays to diverge.
+</p>
+
+<h4>Lens Formula</h4>
+
+<div class="formula">
+<strong>1/f = 1/u + 1/v</strong>
+</div>
+
+<ul>
+<li>f = focal length</li>
+<li>u = object distance</li>
+<li>v = image distance</li>
+</ul>
+
+<h4>Magnification</h4>
+
+<div class="formula">
+<strong>m = image height / object height</strong>
+</div>
+
+<div class="formula">
+<strong>m = v/u</strong>
+</div>
+
+<div class="warning">
+<strong>Exam tip:</strong>
+Draw a ray diagram when a question involves image formation.
+It often makes the answer much easier to reason through.
+</div>
+
+</div>
+</div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- ELECTRICITY -->
+<!-- ========================================================= -->
+
+<section class="chapter" id="electricity">
+
+<div class="chapter-header">
+<div class="chapter-number">Chapter 06</div>
+<h2>Electricity</h2>
+<p>Charge, current, voltage, resistance, circuits, power and electrical energy.</p>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>6.1 Electric Charge and Current</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="definition">
+Electric current is the rate of flow of electric charge.
+</div>
+
+<div class="formula">
+<strong>I = Q/t</strong>
+</div>
+
+<ul>
+<li>I = current in amperes</li>
+<li>Q = charge in coulombs</li>
+<li>t = time in seconds</li>
+</ul>
+
+<p>
+Conventional current is considered to flow from positive to negative
+through the external circuit.
+</p>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>6.2 Potential Difference</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="definition">
+Potential difference is the energy transferred per unit charge between
+two points in a circuit.
+</div>
+
+<div class="formula">
+<strong>V = W/Q</strong>
+</div>
+
+<ul>
+<li>V = potential difference in volts</li>
+<li>W = energy transferred in joules</li>
+<li>Q = charge in coulombs</li>
+</ul>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>6.3 Ohm's Law</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="law">
+For a conductor at constant physical conditions, the current through it
+is directly proportional to the potential difference across it.
+</div>
+
+<div class="formula">
+<strong>V = IR</strong>
+</div>
+
+<ul>
+<li>V = voltage</li>
+<li>I = current</li>
+<li>R = resistance</li>
+</ul>
+
+<div class="example">
+<div class="example-title">Worked Example</div>
+
+A resistor of 6 Ω carries a current of 2 A.
+
+<br><br>
+
+V = IR
+
+<br><br>
+
+V = 2 × 6
+
+<br><br>
+
+<strong>V = 12 V</strong>
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>6.4 Series and Parallel Circuits</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<h4>Series</h4>
+
+<ul>
+<li>Same current through each component.</li>
+<li>Voltages add.</li>
+<li>Total resistance is the sum of resistances.</li>
+</ul>
+
+<div class="formula">
+<strong>Rtotal = R₁ + R₂ + R₃ + ...</strong>
+</div>
+
+<h4>Parallel</h4>
+
+<ul>
+<li>Same potential difference across each branch.</li>
+<li>Currents divide between branches.</li>
+<li>Total current is the sum of branch currents.</li>
+</ul>
+
+<div class="formula">
+<strong>1/Rtotal = 1/R₁ + 1/R₂ + 1/R₃ + ...</strong>
+</div>
+
+<div class="memory">
+<strong>Series:</strong> current same.<br>
+<strong>Parallel:</strong> voltage same.
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>6.5 Electrical Power and Energy</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="formula">
+<strong>P = VI</strong>
+</div>
+
+<p>
+Using Ohm's law, this can also be written as:
+</p>
+
+<div class="formula">
+P = I²R
+</div>
+
+<div class="formula">
+P = V²/R
+</div>
+
+<h4>Electrical Energy</h4>
+
+<div class="formula">
+<strong>E = Pt</strong>
+</div>
+
+<p>
+Energy is measured in joules when power is in watts and time is in seconds.
+</p>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>6.6 Kirchhoff's Laws</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<h4>Kirchhoff's First Law</h4>
+
+<div class="law">
+At a junction in a circuit, total current entering equals total current leaving.
+</div>
+
+<div class="formula">
+ΣI(in) = ΣI(out)
+</div>
+
+<h4>Kirchhoff's Second Law</h4>
+
+<div class="law">
+Around any closed loop in a circuit, the algebraic sum of the potential
+differences is zero.
+</div>
+
+<p>
+This follows from conservation of energy.
+</p>
+
+</div>
+</div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- MAGNETISM -->
+<!-- ========================================================= -->
+
+<section class="chapter" id="magnetism">
+
+<div class="chapter-header">
+<div class="chapter-number">Chapter 07</div>
+<h2>Magnetism</h2>
+<p>Magnetic fields, forces on currents and motor principles.</p>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>7.1 Magnetic Fields</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="definition">
+A magnetic field is a region where a magnetic pole or moving charge
+experiences a magnetic force.
+</div>
+
+<p>
+Magnetic field lines show the direction in which a north magnetic pole
+would move.
+</p>
+
+<ul>
+<li>Outside a magnet, field lines go from north to south.</li>
+<li>Field lines never cross.</li>
+<li>Closer field lines represent a stronger field.</li>
+</ul>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>7.2 Force on a Current-Carrying Conductor</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<p>
+A current-carrying conductor placed in a magnetic field can experience
+a force.
+</p>
+
+<div class="formula">
+<strong>F = BIL sin θ</strong>
+</div>
+
+<p>
+For a conductor perpendicular to the magnetic field:
+</p>
+
+<div class="formula">
+<strong>F = BIL</strong>
+</div>
+
+<ul>
+<li>B = magnetic flux density</li>
+<li>I = current</li>
+<li>L = length in the field</li>
+</ul>
+
+<p>
+The direction can be determined using the appropriate motor-force hand rule.
+</p>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>7.3 Electric Motors</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<p>
+An electric motor converts electrical energy into mechanical energy.
+</p>
+
+<p>
+A current-carrying coil in a magnetic field experiences forces on opposite
+sides of the coil. These forces produce a turning effect.
+</p>
+
+<p>
+The commutator reverses the current every half-turn so the torque continues
+to act in the same rotational direction.
+</p>
+
+</div>
+</div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- INDUCTION -->
+<!-- ========================================================= -->
+
+<section class="chapter" id="induction">
+
+<div class="chapter-header">
+<div class="chapter-number">Chapter 08</div>
+<h2>Electromagnetic Induction</h2>
+<p>Generators, transformers and induced voltage.</p>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>8.1 Electromagnetic Induction</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="definition">
+Electromagnetic induction is the production of an emf in a conductor
+when the magnetic flux linking the conductor changes.
+</div>
+
+<div class="law">
+The direction of an induced current is such that its magnetic effect
+opposes the change that produced it.
+</div>
+
+<p>
+This is commonly known as Lenz's law.
+</p>
+
+<p>
+A changing magnetic field is therefore essential. Simply having a magnet
+near a stationary coil does not necessarily produce a continuous current.
+</p>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>8.2 Generators</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<p>
+A generator converts mechanical energy into electrical energy using
+electromagnetic induction.
+</p>
+
+<p>
+A coil rotates in a magnetic field, causing the magnetic flux through
+the coil to change and inducing an emf.
+</p>
+
+<h4>AC Generator</h4>
+
+<p>
+An AC generator uses slip rings to allow the output to alternate direction.
+</p>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>8.3 Transformers</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<p>
+A transformer changes an alternating voltage using electromagnetic induction.
+</p>
+
+<div class="formula">
+<strong>Vp/Vs = Np/Ns</strong>
+</div>
+
+<ul>
+<li>Vp = primary voltage</li>
+<li>Vs = secondary voltage</li>
+<li>Np = primary turns</li>
+<li>Ns = secondary turns</li>
+</ul>
+
+<h4>Step-Up Transformer</h4>
+
+<p>
+Secondary has more turns than primary, so the output voltage is higher.
+</p>
+
+<h4>Step-Down Transformer</h4>
+
+<p>
+Secondary has fewer turns than primary, so the output voltage is lower.
+</p>
+
+<div class="warning">
+<strong>Important:</strong>
+A conventional transformer requires alternating current because a changing
+magnetic field is needed.
+</div>
+
+</div>
+</div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- MODERN PHYSICS -->
+<!-- ========================================================= -->
+
+<section class="chapter" id="modern">
+
+<div class="chapter-header">
+<div class="chapter-number">Chapter 09</div>
+<h2>Modern Physics</h2>
+<p>Atoms, photons, quantum ideas, radioactivity and nuclear energy.</p>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>9.1 Structure of the Atom</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<p>
+An atom contains a small dense nucleus surrounded by electrons.
+</p>
+
+<table>
+<tr>
+<th>Particle</th>
+<th>Charge</th>
+<th>Relative mass</th>
+</tr>
+<tr>
+<td>Proton</td>
+<td>+1</td>
+<td>≈ 1</td>
+</tr>
+<tr>
+<td>Neutron</td>
+<td>0</td>
+<td>≈ 1</td>
+</tr>
+<tr>
+<td>Electron</td>
+<td>-1</td>
+<td>Very small</td>
+</tr>
+</table>
+
+<div class="definition">
+The atomic number is the number of protons in the nucleus.
+</div>
+
+<div class="definition">
+The mass number is the total number of protons and neutrons.
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>9.2 Photons and Quantum Energy</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="definition">
+A photon is a quantum or packet of electromagnetic radiation.
+</div>
+
+<div class="formula">
+<strong>E = hf</strong>
+</div>
+
+<p>
+Using c = fλ:
+</p>
+
+<div class="formula">
+<strong>E = hc/λ</strong>
+</div>
+
+<ul>
+<li>E = photon energy</li>
+<li>h = Planck constant</li>
+<li>f = frequency</li>
+<li>c = speed of light</li>
+<li>λ = wavelength</li>
+</ul>
+
+<p>
+Higher frequency means higher photon energy.
+Shorter wavelength also means higher photon energy.
+</p>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>9.3 Photoelectric Effect</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="definition">
+The photoelectric effect is the emission of electrons from a material
+when electromagnetic radiation of sufficient frequency falls on it.
+</div>
+
+<p>
+The key idea is that light transfers energy in individual photons.
+</p>
+
+<div class="formula">
+<strong>Ephoton = hf</strong>
+</div>
+
+<p>
+If the photon energy is below the required threshold, increasing the
+intensity alone does not make each photon energetic enough to eject an electron.
+</p>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>9.4 Radioactivity</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="definition">
+Radioactivity is the spontaneous disintegration of unstable atomic nuclei,
+with the emission of radiation.
+</div>
+
+<h4>Alpha</h4>
+
+<p>
+An alpha particle consists of two protons and two neutrons.
+It has a +2 charge.
+</p>
+
+<h4>Beta</h4>
+
+<p>
+Beta radiation involves the emission of a high-speed electron or positron
+during nuclear transformation.
+</p>
+
+<h4>Gamma</h4>
+
+<p>
+Gamma radiation is high-energy electromagnetic radiation emitted from
+the nucleus.
+</p>
+
+<table>
+<tr>
+<th>Radiation</th>
+<th>Penetration</th>
+<th>Ionising ability</th>
+</tr>
+<tr>
+<td>Alpha</td>
+<td>Low</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Beta</td>
+<td>Medium</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Gamma</td>
+<td>High</td>
+<td>Lower than alpha</td>
+</tr>
+</table>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>9.5 Half-Life</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="definition">
+Half-life is the time required for half of the radioactive nuclei
+in a sample to decay.
+</div>
+
+<p>
+After one half-life remains 1/2 of the original amount.
+</p>
+
+<p>
+After two half-lives remains 1/4.
+</p>
+
+<p>
+After three half-lives remains 1/8.
+</p>
+
+<div class="formula">
+<strong>N = N₀(1/2)ⁿ</strong>
+</div>
+
+<p>
+where n is the number of half-lives elapsed.
+</p>
+
+<div class="warning">
+<strong>Important:</strong>
+Radioactive decay is random for an individual nucleus, but predictable
+statistically for a large sample.
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>9.6 Nuclear Fission and Fusion</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<h4>Fission</h4>
+
+<p>
+A heavy nucleus splits into smaller nuclei, releasing energy and usually
+additional neutrons.
+</p>
+
+<p>
+A chain reaction can occur if released neutrons cause further fissions.
+</p>
+
+<h4>Fusion</h4>
+
+<p>
+Light nuclei combine to form a heavier nucleus, releasing energy.
+</p>
+
+<p>
+Fusion powers stars.
+</p>
+
+<div class="memory">
+<strong>Memory:</strong>
+Fission = split.<br>
+Fusion = join.
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>9.7 Mass-Energy Equivalence</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="formula">
+<strong>E = mc²</strong>
+</div>
+
+<p>
+Mass can be considered a form of stored energy.
+Because c² is extremely large, a small mass difference can correspond
+to a very large amount of energy.
+</p>
+
+</div>
+</div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- PARTICLES -->
+<!-- ========================================================= -->
+
+<section class="chapter" id="particles">
+
+<div class="chapter-header">
+<div class="chapter-number">Chapter 10</div>
+<h2>Particle Physics</h2>
+<p>Fundamental particles, quarks, leptons and conservation principles.</p>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>10.1 Fundamental Particles</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<p>
+The Standard Model describes matter in terms of fundamental particles
+and the interactions between them.
+</p>
+
+<h4>Quarks</h4>
+
+<p>
+The six quark flavours are:
+</p>
+
+<div class="formula">
+up, down, charm, strange, top, bottom
+</div>
+
+<h4>Leptons</h4>
+
+<p>
+The charged leptons include:
+</p>
+
+<div class="formula">
+electron, muon, tau
+</div>
+
+<p>
+There are also corresponding neutrinos.
+</p>
+
+<h4>Hadrons</h4>
+
+<p>
+Hadrons are particles made from quarks.
+</p>
+
+<ul>
+<li>Protons and neutrons are baryons.</li>
+<li>Mesons consist of a quark and antiquark.</li>
+</ul>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>10.2 Conservation Laws</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<p>
+Particle interactions are constrained by conservation laws.
+Depending on the process, quantities such as energy, momentum and charge
+must be conserved.
+</p>
+
+<div class="warning">
+<strong>Exam approach:</strong>
+When checking whether a particle reaction is possible, compare conserved
+quantities before and after the interaction.
+</div>
+
+</div>
+</div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- ASTROPHYSICS -->
+<!-- ========================================================= -->
+
+<section class="chapter" id="astrophysics">
+
+<div class="chapter-header">
+<div class="chapter-number">Chapter 11</div>
+<h2>Astrophysics</h2>
+<p>Stars, galaxies, redshift, Hubble's law and the expanding universe.</p>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>11.1 Stars</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<p>
+Stars are enormous bodies of plasma held together by gravity.
+Their energy comes primarily from nuclear fusion in their interiors.
+</p>
+
+<p>
+The evolution of a star depends strongly on its initial mass.
+</p>
+
+<h4>Basic stellar sequence</h4>
+
+<ol class="steps">
+<li>A cloud of gas and dust collapses under gravity.</li>
+<li>The forming object becomes a protostar.</li>
+<li>Fusion begins when sufficient temperature and pressure are reached.</li>
+<li>The star enters a stable main-sequence phase.</li>
+<li>Its later evolution depends on its mass.</li>
+</ol>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>11.2 Spectra</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<p>
+Light from stars can be analysed using spectroscopy.
+Spectral lines provide information about composition, temperature and motion.
+</p>
+
+<div class="definition">
+An emission spectrum contains wavelengths emitted by excited atoms.
+</div>
+
+<div class="definition">
+An absorption spectrum contains dark lines where particular wavelengths
+have been absorbed.
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>11.3 Redshift</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="definition">
+Redshift is the shift of spectral features towards longer wavelengths.
+</div>
+
+<p>
+For distant galaxies, redshift is evidence that many galaxies are moving
+away from us as the universe expands.
+</p>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>11.4 Hubble's Law</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="formula">
+<strong>v = H₀d</strong>
+</div>
+
+<ul>
+<li>v = recession velocity</li>
+<li>H₀ = Hubble constant</li>
+<li>d = distance</li>
+</ul>
+
+<p>
+The relationship provides evidence for an expanding universe.
+</p>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>11.5 Big Bang Model</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<p>
+The Big Bang model describes the universe as having evolved from an
+extremely hot, dense early state.
+</p>
+
+<p>
+Important evidence includes:
+</p>
+
+<ul>
+<li>Expansion of the universe.</li>
+<li>Cosmic microwave background radiation.</li>
+<li>Observed abundance of light elements.</li>
+</ul>
+
+<div class="definition">
+Cosmic microwave background radiation is electromagnetic radiation
+left over from the early universe, now observed mainly in the microwave region.
+</div>
+
+</div>
+</div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- EXPERIMENTS -->
+<!-- ========================================================= -->
+
+<section class="chapter" id="experiments">
+
+<div class="chapter-header">
+<div class="chapter-number">Chapter 12</div>
+<h2>Experimental Physics</h2>
+<p>How to approach practical work, measurements, graphs and uncertainty.</p>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>12.1 Variables</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="definition">
+<strong>Independent variable:</strong> the quantity you deliberately change.
+</div>
+
+<div class="definition">
+<strong>Dependent variable:</strong> the quantity you measure as a result.
+</div>
+
+<div class="definition">
+<strong>Controlled variable:</strong> a quantity kept constant so it does not
+affect the investigation.
+</div>
+
+<div class="example">
+<div class="example-title">Example</div>
+
+If investigating how wire length affects resistance:
+
+<br><br>
+
+Independent variable → length of wire<br>
+Dependent variable → resistance<br>
+Controlled variables → material, cross-sectional area, temperature
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>12.2 Accuracy and Precision</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="definition">
+<strong>Accuracy</strong> describes how close a measurement is to the accepted or true value.
+</div>
+
+<div class="definition">
+<strong>Precision</strong> describes how closely repeated measurements agree with each other.
+</div>
+
+<p>
+A set of measurements can be precise but inaccurate if there is a systematic error.
+</p>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>12.3 Experimental Graphs</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<p>
+A good experimental graph should normally include:
+</p>
+
+<ul>
+<li>Clearly labelled axes.</li>
+<li>Units on the axes.</li>
+<li>A suitable scale.</li>
+<li>Points plotted accurately.</li>
+<li>A best-fit line or curve where appropriate.</li>
+<li>A gradient calculated using well-separated points.</li>
+</ul>
+
+<h4>Gradient</h4>
+
+<div class="formula">
+<strong>gradient = change in y / change in x</strong>
+</div>
+
+<p>
+The gradient often represents a physical quantity.
+Always examine the equation behind the experiment to determine what
+the gradient means.
+</p>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>12.4 Sources of Experimental Error</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<h4>Random Error</h4>
+
+<p>
+Random errors cause readings to vary unpredictably.
+Repeating measurements and calculating an average can reduce their effect.
+</p>
+
+<h4>Systematic Error</h4>
+
+<p>
+A systematic error shifts measurements consistently in one direction.
+Repeating the measurement does not automatically remove it.
+</p>
+
+<h4>Improving an experiment</h4>
+
+<ul>
+<li>Repeat measurements.</li>
+<li>Calculate averages.</li>
+<li>Use more precise measuring instruments.</li>
+<li>Reduce parallax error.</li>
+<li>Control temperature where relevant.</li>
+<li>Use a larger range of measurements.</li>
+<li>Take readings carefully and consistently.</li>
+</ul>
+
+</div>
+</div>
+
+</section>
+
+
+<!-- ========================================================= -->
+<!-- EXAM SKILLS -->
+<!-- ========================================================= -->
+
+<section class="chapter" id="exam">
+
+<div class="chapter-header">
+<div class="chapter-number">Chapter 13</div>
+<h2>Exam Skills & Formula Strategy</h2>
+<p>How to actually use Physics knowledge in calculation and theory questions.</p>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>13.1 The Universal Calculation Method</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<ol class="steps">
+
+<li>
+<strong>Read the entire question.</strong>
+Do not immediately grab a formula.
+</li>
+
+<li>
+<strong>Write down the known quantities.</strong>
+Give every value its symbol and unit.
+</li>
+
+<li>
+<strong>Identify what the question asks for.</strong>
+Write the unknown.
+</li>
+
+<li>
+<strong>Choose the formula.</strong>
+Choose one containing the known values and the unknown.
+</li>
+
+<li>
+<strong>Rearrange before substituting if necessary.</strong>
+This reduces mistakes.
+</li>
+
+<li>
+<strong>Substitute with units.</strong>
+Make sure SI units are being used where required.
+</li>
+
+<li>
+<strong>Calculate.</strong>
+Keep sensible significant figures.
+</li>
+
+<li>
+<strong>Give the unit.</strong>
+A numerical answer without the correct unit may lose marks.
+</li>
+
+</ol>
+
+<div class="example">
+<div class="example-title">Example Strategy</div>
+
+Question:
+
+A 5 kg object accelerates at 4 m/s². Find the resultant force.
+
+<br><br>
+
+Known:
+
+<br>
+m = 5 kg<br>
+a = 4 m/s²
+
+<br><br>
+
+Unknown:
+
+<br>
+F = ?
+
+<br><br>
+
+Formula:
+
+<br>
+F = ma
+
+<br><br>
+
+Substitute:
+
+<br>
+F = 5 × 4
+
+<br><br>
+
+Answer:
+
+<br>
+<strong>F = 20 N</strong>
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>13.2 Unit Conversions You Must Know</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<table>
+<tr>
+<th>Quantity</th>
+<th>Common conversion</th>
+</tr>
+
+<tr>
+<td>Distance</td>
+<td>1 km = 1000 m</td>
+</tr>
+
+<tr>
+<td>Mass</td>
+<td>1 kg = 1000 g</td>
+</tr>
+
+<tr>
+<td>Time</td>
+<td>1 min = 60 s</td>
+</tr>
+
+<tr>
+<td>Time</td>
+<td>1 hour = 3600 s</td>
+</tr>
+
+<tr>
+<td>Energy</td>
+<td>1 kJ = 1000 J</td>
+</tr>
+
+<tr>
+<td>Power</td>
+<td>1 kW = 1000 W</td>
+</tr>
+
+<tr>
+<td>Voltage</td>
+<td>1 kV = 1000 V</td>
+</tr>
+
+</table>
+
+<div class="warning">
+<strong>Golden rule:</strong>
+Before putting numbers into a formula, check every unit.
+</div>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>13.3 How to Recognise the Topic</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<table>
+<tr>
+<th>If you see...</th>
+<th>Think...</th>
+</tr>
+
+<tr>
+<td>mass + acceleration</td>
+<td>F = ma</td>
+</tr>
+
+<tr>
+<td>mass + velocity</td>
+<td>momentum</td>
+</tr>
+
+<tr>
+<td>mass + height</td>
+<td>gravitational potential energy</td>
+</tr>
+
+<tr>
+<td>mass + speed</td>
+<td>kinetic energy</td>
+</tr>
+
+<tr>
+<td>force + distance</td>
+<td>work / moment depending on context</td>
+</tr>
+
+<tr>
+<td>voltage + current</td>
+<td>electrical power</td>
+</tr>
+
+<tr>
+<td>voltage + current + resistance</td>
+<td>Ohm's law</td>
+</tr>
+
+<tr>
+<td>frequency + wavelength</td>
+<td>v = fλ</td>
+</tr>
+
+<tr>
+<td>angle of incidence + refraction</td>
+<td>Snell's law</td>
+</tr>
+
+<tr>
+<td>half-life + number of half-lives</td>
+<td>radioactive decay</td>
+</tr>
+
+<tr>
+<td>voltage + turns</td>
+<td>transformer equation</td>
+</tr>
+
+</table>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>13.4 Common Physics Mistakes</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<ul>
+
+<li>
+Using kilometres instead of metres.
+</li>
+
+<li>
+Using grams instead of kilograms.
+</li>
+
+<li>
+Using hours instead of seconds.
+</li>
+
+<li>
+Forgetting units.
+</li>
+
+<li>
+Using Celsius instead of kelvin in a gas-law calculation.
+</li>
+
+<li>
+Confusing mass with weight.
+</li>
+
+<li>
+Confusing speed with velocity.
+</li>
+
+<li>
+Measuring optical angles from the surface instead of the normal.
+</li>
+
+<li>
+Forgetting that current is the same in a series circuit.
+</li>
+
+<li>
+Forgetting that voltage is the same across parallel branches.
+</li>
+
+<li>
+Using an equation of motion when acceleration is not constant.
+</li>
+
+<li>
+Forgetting that centripetal force points towards the centre.
+</li>
+
+<li>
+Thinking a larger resistance automatically means a larger current.
+</li>
+
+<li>
+Forgetting that frequency stays constant when light crosses a boundary.
+</li>
+
+</ul>
+
+</div>
+</div>
+
+
+<div class="topic">
+
+<div class="topic-header">
+<h3>13.5 Final Physics Checklist</h3>
+<span>+</span>
+</div>
+
+<div class="topic-content">
+
+<div class="two-col">
+
+<div class="card">
+<h5>Mechanics</h5>
+<p>
+Motion, graphs, Newton's laws, momentum, energy, power, moments,
+circular motion and gravity.
+</p>
+</div>
+
+<div class="card">
+<h5>Thermal</h5>
+<p>
+Heat, temperature, specific heat capacity, latent heat, conduction,
+convection, radiation and gas laws.
+</p>
+</div>
+
+<div class="card">
+<h5>Waves</h5>
+<p>
+Wave equation, reflection, refraction, diffraction and interference.
+</p>
+</div>
+
+<div class="card">
+<h5>Sound</h5>
+<p>
+Frequency, pitch, loudness, resonance, standing waves and Doppler effect.
+</p>
+</div>
+
+<div class="card">
+<h5>Light</h5>
+<p>
+Reflection laws, refraction laws, Snell's law, critical angle,
+TIR and lenses.
+</p>
+</div>
+
+<div class="card">
+<h5>Electricity</h5>
+<p>
+Charge, current, voltage, resistance, circuits, power and Kirchhoff's laws.
+</p>
+</div>
+
+<div class="card">
+<h5>Magnetism</h5>
+<p>
+Magnetic fields, force on conductors and motors.
+</p>
+</div>
+
+<div class="card">
+<h5>Modern Physics</h5>
+<p>
+Photons, atoms, radioactivity, half-life, fission, fusion and E = mc².
+</p>
+</div>
+
+<div class="card">
+<h5>Particles</h5>
+<p>
+Quarks, leptons, hadrons and conservation laws.
+</p>
+</div>
+
+<div class="card">
+<h5>Astrophysics</h5>
+<p>
+Stars, spectra, redshift, Hubble's law and the Big Bang.
+</p>
+</div>
+
+<div class="card">
+<h5>Experiments</h5>
+<p>
+Variables, graphs, uncertainty, errors, accuracy and precision.
+</p>
+</div>
+
+<div class="card">
+<h5>Exam Technique</h5>
+<p>
+Units, formula selection, rearranging equations and calculation structure.
+</p>
+</div>
+
+</div>
+
+<div class="memory">
+<strong>The most important habit:</strong>
+Do not memorise a formula without understanding what every symbol means
+and what physical situation the formula describes.
+</div>
+
+</div>
+</div>
+
+</section>
+
+</main>
+</div>
+
+
+<footer>
+EXAMFORMULA Physics — Detailed Leaving Certificate Physics Study Book
+</footer>
+
+
+<script>
+
+const topics = document.querySelectorAll(".topic");
+const search = document.getElementById("search");
+const noResults = document.getElementById("noResults");
+const expandAll = document.getElementById("expandAll");
+
+topics.forEach(topic => {
+
+    const header = topic.querySelector(".topic-header");
+
+    header.addEventListener("click", () => {
+
+        topic.classList.toggle("open");
+
+        const icon = header.querySelector("span");
+
+        if(topic.classList.contains("open")){
+            icon.textContent = "−";
+        }else{
+            icon.textContent = "+";
+        }
+
+    });
+
+});
+
+
+expandAll.addEventListener("click", () => {
+
+    const allOpen = [...topics].every(topic =>
+        topic.classList.contains("open")
+    );
+
+    topics.forEach(topic => {
+
+        topic.classList.toggle("open", !allOpen);
+
+        const icon = topic.querySelector(".topic-header span");
+
+        icon.textContent = allOpen ? "+" : "−";
+
+    });
+
+    expandAll.textContent = allOpen ? "+" : "−";
+
+});
+
+
+search.addEventListener("input", () => {
+
+    const query = search.value.trim().toLowerCase();
+
+    let matches = 0;
+
+    topics.forEach(topic => {
+
+        const text = topic.innerText.toLowerCase();
+
+        const match = !query || text.includes(query);
+
+        topic.style.display = match ? "" : "none";
+
+        if(match){
+            matches++;
+        }
+
+        if(query && match){
+            topic.classList.add("open");
+            topic.querySelector(".topic-header span").textContent = "−";
+        }
+
+    });
+
+    noResults.style.display =
+        matches === 0 ? "block" : "none";
+
+});
+
+
+const chapters = document.querySelectorAll(".chapter");
+const navButtons = document.querySelectorAll(".nav button");
+
+function updateProgress(){
+
+    const viewportBottom =
+        window.scrollY + window.innerHeight * .75;
+
+    let viewed = 0;
+
+    chapters.forEach(chapter => {
+
+        const top = chapter.offsetTop;
+
+        if(viewportBottom > top){
+            viewed++;
+        }
+
+    });
+
+    const percent =
+        Math.min(100, Math.round(
+            viewed / chapters.length * 100
+        ));
+
+    document.getElementById("progressBar").style.width =
+        percent + "%";
+
+    document.getElementById("progressText").textContent =
+        percent + "% of chapters viewed";
+
+}
+
+window.addEventListener("scroll", updateProgress);
+
+navButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const target =
+            document.getElementById(button.dataset.target);
+
+        if(target){
+
+            target.scrollIntoView({
+                behavior:"smooth",
+                block:"start"
+            });
+
+        }
+
+    });
+
+});
+
+
+const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+            navButtons.forEach(button => {
+
+                button.classList.toggle(
+                    "active",
+                    button.dataset.target === entry.target.id
+                );
+
+            });
+
+        }
+
+    });
+
+},{
+    rootMargin:"-20% 0px -65% 0px"
+});
+
+chapters.forEach(chapter => observer.observe(chapter));
+
+
+if("serviceWorker" in navigator){
+
+    window.addEventListener("load", () => {
+
+        navigator.serviceWorker.register("./sw.js")
+            .catch(error =>
+                console.log("Service worker registration failed:", error)
+            );
+
+    });
+
+}
+
+updateProgress();
+
+</script>
+
+</body>
+</html>

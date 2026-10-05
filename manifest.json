@@ -1,0 +1,19 @@
+{
+  "name": "EXAMFORMULA Physics",
+  "short_name": "Physics",
+  "description": "Detailed Leaving Certificate Physics study book.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "icons": [
+    {
+      "src": "./icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
